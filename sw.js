@@ -67,10 +67,13 @@ if (!self.define) {
     });
   };
 }
-define(['./workbox-ab7aa862'], (function (workbox) { 'use strict';
+define(['./workbox-fc5f5acf'], (function (workbox) { 'use strict';
 
-  self.skipWaiting();
-  workbox.clientsClaim();
+  self.addEventListener('message', event => {
+    if (event.data && event.data.type === 'SKIP_WAITING') {
+      self.skipWaiting();
+    }
+  });
 
   /**
    * The precacheAndRoute() method efficiently caches and responds to
@@ -78,17 +81,17 @@ define(['./workbox-ab7aa862'], (function (workbox) { 'use strict';
    * See https://goo.gl/S9QRab
    */
   workbox.precacheAndRoute([{
-    "url": "assets/index-057a1532.css",
+    "url": "assets/index-5e7f537e.js",
     "revision": null
   }, {
-    "url": "assets/index-2ca82891.js",
+    "url": "assets/index-91a9c5b9.css",
     "revision": null
   }, {
     "url": "assets/workbox-window.prod.es5-a7b12eab.js",
     "revision": null
   }, {
     "url": "index.html",
-    "revision": "be84f56ef5fa8337b8b2c0cbbbb11c8c"
+    "revision": "f34be29be370d158128c4081936efe62"
   }, {
     "url": "pwa-192x192.png",
     "revision": "f24c9384006bbc8de95ed69990459dca"
